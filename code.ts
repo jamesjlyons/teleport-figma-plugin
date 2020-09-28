@@ -4,8 +4,10 @@
 
 const nodes: SceneNode[] = [];
 
+let notificationTime = 2000;
+
 //
-// COMMANDS //////////
+// COMMANDS
 //
 if (figma.command === "copy") {
   // copy selection to new page
@@ -16,26 +18,38 @@ if (figma.command === "copy") {
 }
 
 //
-// CORE FUNCTIONS //////////
+// CORE FUNCTIONS
 //
 
 function copy() {
-  let newPage = figma.createPage();
-  newPage.name = "Copied Here";
-  for (const node of figma.currentPage.selection) {
-    let duplicate = node.clone();
-    newPage.appendChild(duplicate);
+  if (figma.currentPage.selection.length <= 0) {
+    figma.closePlugin("Please make a selection to teleport 🚀");
+  } else {
+    let newPage = figma.createPage();
+    newPage.name = "Copied Here";
+    for (const node of figma.currentPage.selection) {
+      let duplicate = node.clone();
+      newPage.appendChild(duplicate);
+    }
+    figma.notify("Teleported Copy 🚀", {
+      timeout: notificationTime,
+    });
   }
 }
 
 function send() {
-  let newPage = figma.createPage();
-  newPage.name = "Teleported Here";
-  for (const node of figma.currentPage.selection) {
-    newPage.appendChild(node);
+  if (figma.currentPage.selection.length <= 0) {
+    figma.closePlugin("Please make a selection to teleport 🚀");
+  } else {
+    let newPage = figma.createPage();
+    newPage.name = "Teleported Here";
+    for (const node of figma.currentPage.selection) {
+      newPage.appendChild(node);
+    }
+    figma.notify("Teleported 🚀", {
+      timeout: notificationTime,
+    });
   }
 }
 
-// Make sure to close the plugin when you're done. Otherwise the plugin will
-// keep running, which shows the cancel button at the bottom of the screen.
 figma.closePlugin();
