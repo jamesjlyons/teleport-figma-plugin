@@ -1,0 +1,10 @@
+{
+  "name": "Teleporter",
+  "id": "892202130569280122",
+  "api": "1.0.0",
+  "main": "code.js",
+  "menu": [
+    { "name": "Teleport to New Page", "command": "send" },
+    { "name": "Teleport Copy to New Page", "command": "copy" }
+  ]
+}
