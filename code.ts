@@ -1,7 +1,3 @@
-// This file holds the main code for the plugins. It has access to the *document*.
-// You can access browser APIs such as the network by creating a UI which contains
-// a full browser environment (see documentation).
-
 const nodes: SceneNode[] = [];
 
 let notificationTime = 2000;
@@ -18,9 +14,8 @@ if (figma.command === "copy") {
 }
 
 //
-// CORE FUNCTIONS
+// FUNCTIONS
 //
-
 function copy() {
   if (figma.currentPage.selection.length <= 0) {
     figma.closePlugin("Please make a selection to teleport 🚀");
