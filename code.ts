@@ -1,5 +1,3 @@
-const nodes: SceneNode[] = [];
-
 let notificationTime = 2000;
 
 //
