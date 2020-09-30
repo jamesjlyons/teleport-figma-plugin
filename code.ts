@@ -1,6 +1,5 @@
 const newPage = figma.createPage();
-const notificationTime = 2000;
-let message = null;
+let message = "Teleportation Failed 👾";
 let shouldClone = false;
 
 //
@@ -14,7 +13,7 @@ if (figma.command === "cloneAndTeleport") {
   // move selection to new page
   teleport(shouldClone);
 } else {
-  figma.closePlugin("Please choose a valid command");
+  figma.closePlugin(message);
 }
 
 //
@@ -22,7 +21,7 @@ if (figma.command === "cloneAndTeleport") {
 //
 function teleport(shouldClone: boolean) {
   if (figma.currentPage.selection.length <= 0) {
-    figma.closePlugin("Please make a selection to teleport 🚀");
+    message = "Please make a selection to teleport 🚀";
   } else {
     for (const node of figma.currentPage.selection) {
       if (shouldClone == true) {
@@ -34,20 +33,11 @@ function teleport(shouldClone: boolean) {
         newPage.name = "Teleported Here";
         newPage.appendChild(node);
         message = "Teleported 🚀";
+      } else {
+        figma.closePlugin(message);
       }
     }
-    notify(message);
   }
 }
 
-function notify(message: string) {
-  if (message != null) {
-    figma.notify(message, {
-      timeout: notificationTime,
-    });
-  } else {
-    figma.closePlugin("Teleportation Failed 👾");
-  }
-}
-
-figma.closePlugin();
+figma.closePlugin(message);
