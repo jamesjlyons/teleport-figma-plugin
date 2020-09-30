@@ -1,6 +1,6 @@
 const newPage = figma.createPage();
 const notificationTime = 2000;
-let message = "🚀";
+let message = null;
 let shouldClone = false;
 
 //
@@ -30,21 +30,24 @@ function teleport(shouldClone: boolean) {
         const duplicate = node.clone();
         newPage.appendChild(duplicate);
         message = "Teleported Clone 🚀";
-        notify(message);
       } else if (shouldClone == false) {
         newPage.name = "Teleported Here";
         newPage.appendChild(node);
         message = "Teleported 🚀";
-        notify(message);
       }
     }
+    notify(message);
   }
 }
 
 function notify(message: string) {
-  figma.notify(message, {
-    timeout: notificationTime,
-  });
+  if (message != null) {
+    figma.notify(message, {
+      timeout: notificationTime,
+    });
+  } else {
+    figma.closePlugin("Teleportation Failed 👾");
+  }
 }
 
 figma.closePlugin();
