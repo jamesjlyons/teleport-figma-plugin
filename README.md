@@ -1,4 +1,4 @@
-# Teleporter
+# Teleport
 
 ### A simple Figma utility plugin
 
