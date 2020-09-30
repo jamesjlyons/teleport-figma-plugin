@@ -1,7 +1,9 @@
+![Cover Image](./assets/cover.png)
+
 # Teleport
 
 ### A simple Figma utility plugin
 
-`Send to New Page` command creates a new page called "Sent Here" and moves the current selection to that page.
+`Teleport to New Page` command creates a new page called "Teleported Here" and moves the current selection to that page.
 
-`Copy to New Page` command creates a new page called "Copied Here" and sends a duplicate of the current selection to that page.
+`Clone and Teleport to New Page` command creates a new page called "Cloned Here" and sends a duplicate of the current selection to that page.
