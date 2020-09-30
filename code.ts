@@ -1,4 +1,3 @@
-const newPage = figma.createPage();
 let message = "Teleportation Failed 👾";
 let shouldClone = false;
 
@@ -23,6 +22,7 @@ function teleport(shouldClone: boolean) {
   if (figma.currentPage.selection.length <= 0) {
     message = "Please make a selection to teleport 🚀";
   } else {
+    const newPage = figma.createPage();
     for (const node of figma.currentPage.selection) {
       if (shouldClone == true) {
         newPage.name = "Cloned Here";
