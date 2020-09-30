@@ -4,7 +4,7 @@
   "api": "1.0.0",
   "main": "code.js",
   "menu": [
-    { "name": "Teleport to New Page", "command": "send" },
-    { "name": "Teleport Copy to New Page", "command": "copy" }
+    { "name": "Teleport to New Page", "command": "teleport" },
+    { "name": "Clone and Teleport to New Page", "command": "cloneAndTeleport" }
   ]
 }

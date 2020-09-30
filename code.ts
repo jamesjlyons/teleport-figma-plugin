@@ -6,11 +6,11 @@ let shouldClone = false;
 //
 // COMMANDS
 //
-if (figma.command === "copy") {
+if (figma.command === "cloneAndTeleport") {
   // copy selection to new page
   shouldClone = true;
   teleport(shouldClone);
-} else if (figma.command === "send") {
+} else if (figma.command === "teleport") {
   // move selection to new page
   teleport(shouldClone);
 } else {
@@ -26,10 +26,10 @@ function teleport(shouldClone: boolean) {
   } else {
     for (const node of figma.currentPage.selection) {
       if (shouldClone == true) {
-        newPage.name = "Copied Here";
+        newPage.name = "Cloned Here";
         const duplicate = node.clone();
         newPage.appendChild(duplicate);
-        message = "Teleported Copy 🚀";
+        message = "Teleported Clone 🚀";
         notify(message);
       } else if (shouldClone == false) {
         newPage.name = "Teleported Here";
