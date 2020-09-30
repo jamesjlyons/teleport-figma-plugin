@@ -1,4 +1,4 @@
-let notificationTime = 2000;
+const notificationTime = 2000;
 
 //
 // COMMANDS
@@ -18,10 +18,10 @@ function copy() {
   if (figma.currentPage.selection.length <= 0) {
     figma.closePlugin("Please make a selection to teleport 🚀");
   } else {
-    let newPage = figma.createPage();
+    const newPage = figma.createPage();
     newPage.name = "Copied Here";
     for (const node of figma.currentPage.selection) {
-      let duplicate = node.clone();
+      const duplicate = node.clone();
       newPage.appendChild(duplicate);
     }
     figma.notify("Teleported Copy 🚀", {
@@ -34,7 +34,7 @@ function send() {
   if (figma.currentPage.selection.length <= 0) {
     figma.closePlugin("Please make a selection to teleport 🚀");
   } else {
-    let newPage = figma.createPage();
+    const newPage = figma.createPage();
     newPage.name = "Teleported Here";
     for (const node of figma.currentPage.selection) {
       newPage.appendChild(node);
