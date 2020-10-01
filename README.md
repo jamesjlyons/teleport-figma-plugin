@@ -7,3 +7,9 @@
 `Teleport to New Page` command creates a new page called "Teleported Here" and moves the current selection to that page.
 
 `Clone and Teleport to New Page` command creates a new page called "Cloned Here" and sends a duplicate of the current selection to that page.
+
+Extra helpful if commands are mapped to keyboard shortcuts through the Figma desktop app on Mac.
+Examples with no current shortcut conflicts:
+
+- `⌘T` for `Teleport to New Page`
+- `⌘⌃T` for `Clone and Teleport to New Page`.
