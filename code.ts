@@ -24,17 +24,15 @@ function teleport(shouldClone: boolean) {
   } else {
     const newPage = figma.createPage();
     for (const node of figma.currentPage.selection) {
-      if (shouldClone == true) {
+      if (shouldClone) {
         newPage.name = "Cloned Here";
         const duplicate = node.clone();
         newPage.appendChild(duplicate);
         message = "Teleported Clone 🚀";
-      } else if (shouldClone == false) {
+      } else {
         newPage.name = "Teleported Here";
         newPage.appendChild(node);
         message = "Teleported 🚀";
-      } else {
-        figma.closePlugin(message);
       }
     }
   }
