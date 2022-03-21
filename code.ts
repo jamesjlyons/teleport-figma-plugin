@@ -16,6 +16,23 @@ if (figma.command === "cloneAndTeleport") {
 }
 
 //
+// PARAMETERS
+//
+figma.parameters.on(
+  "input",
+  ({ parameters, key, query, result }: ParameterInputEvent) => {
+    switch (key) {
+      case "clone":
+        const options = ["move", "clone and move"];
+        result.setSuggestions(options.filter((s) => s.includes(query)));
+        break;
+      default:
+        return;
+    }
+  }
+);
+
+//
 // FUNCTIONS
 //
 function teleport(shouldClone: boolean) {
