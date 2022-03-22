@@ -4,9 +4,10 @@
   "api": "1.0.0",
   "main": "code.js",
   "editorType": ["figma"],
+  "parameterOnly": false,
   "parameters": [
     {
-      "name": "Clone",
+      "name": "Options",
       "key": "clone"
     },
     {
