@@ -20,13 +20,6 @@ figma.on("run", ({ parameters }: RunEvent) => {
   if (parameters) {
     startPluginWithParameters(parameters);
   } else {
-    // only teleport if no parameters entered
-    for (const node of figma.currentPage.selection) {
-      const newPage = figma.createPage();
-      newPage.name = "Teleported Here";
-      newPage.appendChild(node);
-      message = "Teleported 🚀";
-    }
     figma.closePlugin(message);
   }
 });
@@ -54,5 +47,6 @@ function startPluginWithParameters(parameters: ParameterValues) {
       message = "Teleported 🚀";
     }
   }
+  figma.currentPage.selection = [];
   figma.closePlugin(message);
 }
